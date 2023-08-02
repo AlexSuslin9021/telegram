@@ -1,11 +1,12 @@
 import React from 'react';
+import {Header} from "./common/header/header";
 
 
 function App() {
     return (
-        <div>
-            test new
-        </div>
+        <>
+            <Header/>
+        </>
     );
 }
 
