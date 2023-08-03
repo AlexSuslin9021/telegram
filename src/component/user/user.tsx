@@ -1,12 +1,14 @@
 import React from 'react';
+import s from './user.module.css'
 
 export const User: React.FC<UserType> = ({src, lastName, name, messege}) => {
     return (
-        <div>
-            <div><img src={src} alt=""/></div>
-            <div><span> {messege}</span>
-                <span> {name}</span>
-                <div> {lastName}</div>
+        <div className={s.user}>
+            <div><img className={s.image} src={src} alt=""/></div>
+            <div>
+                <span className={s.name}> {name}</span>
+                <span className={s.name}> {lastName}</span>
+                <div className={s.messege}> {messege}</div>
             </div>
         </div>
     );

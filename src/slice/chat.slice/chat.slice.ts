@@ -1,9 +1,9 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {api, ChatType} from "../../api/api";
 
-const getChat= createAsyncThunk<ChatType,void>('chat/getChat',async ()=>{
+export const getChat= createAsyncThunk<ChatType,void>('chat/getChat',async ()=>{
    let res=await api.getChat()
-    return res.data.response
+    return res.data
 })
 const slice =createSlice({
     name:'chat',
