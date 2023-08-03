@@ -1,12 +1,15 @@
 import React from 'react';
-import {Header} from "./common/header/header";
+import {AllChat} from "./component/allChat/allChat";
+import {Project} from "./component/Project/Project";
+import s from './app.module.css'
 
 
 function App() {
     return (
-        <>
-            <Header/>
-        </>
+        <div className={s.app}  >
+            <AllChat/>
+            <Project/>
+        </div>
     );
 }
 
