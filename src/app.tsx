@@ -1,7 +1,5 @@
 import React from 'react';
-import {AllChat} from "./component/allChat/allChat";
-import {Project} from "./component/Project/Project";
-import s from './app.module.css'
+import {Header} from "./common/header/header";
 
 
 function App() {
