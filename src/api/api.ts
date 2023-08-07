@@ -4,6 +4,9 @@ export const api={
     getChat(){
 return instance.get('chat.get')
     },
+    getMessage(id:string){
+        return instance.get(`message.get${id}`)
+    },
 }
 
 export type ChatType= {
@@ -35,4 +38,19 @@ type UsersType={
     "surname": string,
     "avatar": string
 
+
+}
+
+export type  MessagesType=  {
+    "id": string,
+    "created_at": number,
+    "user": {
+        "id": string,
+        "name": string,
+        "surname": string,
+        "avatar": string,
+        "you": boolean
+    },
+    "message": string,
+    "is_new": boolean
 }
