@@ -2,13 +2,15 @@ import { configureStore } from '@reduxjs/toolkit'
 import {useDispatch} from "react-redux";
 import {chat} from "../../telegramm/slice/chat.slice/chat.slice";
 import {messeges} from "../../telegramm/slice/messeges.slice/messege";
+import {country} from "../../country/slice/country";
 
 
 // ...
 const store = configureStore({
     reducer: {
         chat,
-        messeges
+        messeges,
+        country,
     },
 })
 export type RootState = ReturnType<typeof store.getState>
