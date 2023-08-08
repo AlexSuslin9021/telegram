@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {useAppDispatch} from "../../store/store";
-import {useAppSelector} from "../../hooks/hooks";
+import {useAppDispatch} from "../../../common/store/store";
+import {useAppSelector} from "../../../common/hooks/hooks";
 import {User} from "../user/user";
 import {getChat} from "../../slice/chat.slice/chat.slice";
 

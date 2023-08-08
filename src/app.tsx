@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './app.module.css'
-import {AllChat} from "./component/allChat/allChat";
-import {Project} from "./component/Project/Project";
+import {AllChat} from "./telegramm/component/allChat/allChat";
+import {Project} from "./telegramm/component/Project/Project";
 
 
 function App() {

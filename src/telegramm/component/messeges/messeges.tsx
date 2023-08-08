@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {useAppSelector} from "../../hooks/hooks";
-import {useAppDispatch} from "../../store/store";
+import {useAppSelector} from "../../../common/hooks/hooks";
+import {useAppDispatch} from "../../../common/store/store";
 import {getMessege} from "../../slice/messeges.slice/messege";
 import {Message} from "../messege/message";
 

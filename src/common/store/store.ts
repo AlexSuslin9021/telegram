@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {useDispatch} from "react-redux";
-import {chat} from "../slice/chat.slice/chat.slice";
-import {messeges} from "../slice/messeges.slice/messege";
+import {chat} from "../../telegramm/slice/chat.slice/chat.slice";
+import {messeges} from "../../telegramm/slice/messeges.slice/messege";
 
 
 // ...

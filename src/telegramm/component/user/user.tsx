@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './user.module.css'
-import {useAppDispatch} from "../../store/store";
+import {useAppDispatch} from "../../../common/store/store";
 import {getMessege} from "../../slice/messeges.slice/messege";
 
 export const User: React.FC<UserType> = ({src, lastName, name, messege, id}) => {
