@@ -5,6 +5,10 @@ export const getCountry = createAsyncThunk<CountryType[], void>('country/getCoun
     const res = await api.getCountry()
     return res.data
 })
+export const getSearch = createAsyncThunk<CountryType[], string>('country/getSearch', async (arg:string) => {
+    const res = await api.searchCountry(arg)
+    return res.data
+})
 
 const slice = createSlice({
     name: 'country',
@@ -14,7 +18,12 @@ const slice = createSlice({
         builder.addCase(getCountry.fulfilled, (state, action) => {
             return action.payload
         })
-    }
+        builder.addCase(getSearch.fulfilled, (state, action) => {
+            return action.payload
+        })
+    },
+
+
 })
 export const country = slice.reducer
 
