@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from './search.module.css'
 import {useAppDispatch} from "../../../common/store/store";
-import {getSearch} from "../../slice/country";
+import {getCountry, getSearch} from "../../slice/country";
 import {useDebounce} from "../../../common/hooks/debounce";
 export const Search = () => {
     const dispatch = useAppDispatch();
@@ -16,7 +16,13 @@ export const Search = () => {
     }
 
     useEffect(() => {
-        dispatch(getSearch(debouncedValue));
+        // Добавляем проверку на то, изменилось ли значение
+        if (debouncedValue !== '') {
+            dispatch(getSearch(debouncedValue));
+        }
+        else{
+            dispatch(getCountry())
+        }
     }, [debouncedValue, dispatch]);
 
     return (

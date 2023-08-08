@@ -16,7 +16,8 @@ export const Country = () => {
         <div className={s.container}>
             {country.map(c=><div className={s.country} key={c.name.common}>
                 <img className={s.image} src={c.flags.svg} alt=""/>
-                <span className={s.name} >{c.name.official}</span>
+                <span className={s.name} >{c.name.common}</span>
+                <span className={s.capital} >Capital: {c.capital}</span>
             </div>)}
         </div>
     );
