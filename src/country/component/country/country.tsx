@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../../common/store/store";
 import {getCountry} from "../../slice/country";
 import {useAppSelector} from "../../../common/hooks/hooks";
+import s from './country.module.css'
 
 export const Country = () => {
     const dispatch = useAppDispatch()
     const country = useAppSelector(state => state.country)
-    const onClick =()=>{
-        dispatch(getCountry())
-    }
+   useEffect(()=>{
+       dispatch(getCountry())
+   },[dispatch])
+
+
     return (
-        <div>
-            <button onClick={onClick}> add</button>
-            {country.map(c=><div key={c.name.common}>
-                <img style={{width:'120px', height:'80px'}} src={c.flags.svg} alt=""/>
-                <span>{c.name.official}</span>
+        <div className={s.container}>
+            {country.map(c=><div className={s.country} key={c.name.common}>
+                <img className={s.image} src={c.flags.svg} alt=""/>
+                <span className={s.name} >{c.name.official}</span>
             </div>)}
         </div>
     );
