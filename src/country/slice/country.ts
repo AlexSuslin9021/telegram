@@ -1,16 +1,24 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {api} from "../api/api";
+
+export const getCountry = createAsyncThunk<CountryType[], void>('country/getCountry', async () => {
+    const res = await api.getCountry()
+    return res.data
+})
 
 const slice = createSlice({
-    name:'country',
-    initialState:'',
-    reducers:{},
-    extraReducers:(builder)=>{
-
+    name: 'country',
+    initialState: [] as CountryType[],
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(getCountry.fulfilled, (state, action) => {
+            return action.payload
+        })
     }
 })
-export const country =slice.reducer
+export const country = slice.reducer
 
-type CountryType={
+type CountryType = {
     "name": {
         "common": "string",
         "official": "string",
