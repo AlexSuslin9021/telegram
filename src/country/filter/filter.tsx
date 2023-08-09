@@ -1,11 +1,18 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, { ChangeEvent, useState } from 'react';
+import { useAppDispatch } from "../../common/store/store";
+import { filterCountry } from "../slice/country";
 
 export const Filter = () => {
-    const [region, setRegion] = useState('all');
+    const [region, setRegion] = useState('');
+    const dispatch = useAppDispatch();
 
-    const handleRegionChange = (event:ChangeEvent<HTMLSelectElement>) => {
-        setRegion(event.target.value);
+    const handleRegionChange = (event: ChangeEvent<HTMLSelectElement>) => {
+        const selectedRegion = event.currentTarget.value;
+        setRegion(selectedRegion);  // Сначала обновляем состояние
+        dispatch(filterCountry(selectedRegion)); // Затем передаем актуальное значение
     };
+
+    console.log(region);
 
     return (
         <div>
@@ -20,4 +27,5 @@ export const Filter = () => {
         </div>
     );
 };
+
 
