@@ -19,4 +19,4 @@ const appSlice = createSlice({
 });
 
 export const { toggleLoader } = appSlice.actions;
-export default appSlice.reducer;
+export const app= appSlice.reducer;

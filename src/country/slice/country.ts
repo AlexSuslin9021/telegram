@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {api} from "../api/api";
+import {toggleLoader} from "../../app/slice";
 
 export const getCountry = createAsyncThunk<CountryType[], void>('country/getCountry', async () => {
     const res = await api.getCountry()
@@ -9,10 +10,20 @@ export const getSearch = createAsyncThunk<CountryType[], string>('country/getSea
     const res = await api.searchCountry(arg)
     return res.data
 })
-export const filterCountry = createAsyncThunk<CountryType[], string>('country/filterCountry', async (arg:string) => {
-    const res = await api.filterCountry(arg)
-    return res.data
-})
+export const filterCountry = createAsyncThunk<CountryType[], string>('country/filterCountry', async (arg:string, thunkAPI) => {
+  const {dispatch}= thunkAPI
+        try {
+            dispatch(toggleLoader(true));
+            const res = await api.filterCountry(arg);
+            return res.data;
+        } catch (error) {
+            // Обработка ошибки (может быть, бросить её снова для обработки на уровне компонента)
+            throw error;
+        } finally {
+            dispatch(toggleLoader(false));
+        }
+    }
+);
 
 const slice = createSlice({
     name: 'country',
