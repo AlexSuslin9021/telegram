@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { useAppDispatch } from "../../common/store/store";
 import { filterCountry } from "../slice/country";
 import {useAppSelector} from "../../common/hooks/hooks";
+import s from './filter.module.css'
 
 export const Filter = () => {
     const [region, setRegion] = useState('');
@@ -17,7 +18,7 @@ export const Filter = () => {
 
     return   loader ? <div> ...loading</div>
         : (
-            <div>
+            <div className={s.filter} >
                 <select name="country" id="" onChange={handleRegionChange} value={region}>
                     <option value="all">All Regions</option>
                     <option value="Asia">Asia</option>
